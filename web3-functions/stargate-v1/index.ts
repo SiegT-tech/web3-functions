@@ -20,7 +20,57 @@ Web3Function.onRun(async (context: Web3FunctionContext) => {
 	const BIPS = 10_000;
 
 	// contracts
-	const strategyAbi = [
+	const strategyAbi = [import Foundation
+
+// Define a Molecule structure
+struct Molecule {
+    let id: String
+    let properties: [String: Any]
+}
+
+// Define a Community structure
+struct Community {
+    let id: String
+    var molecules: [Molecule]
+}
+
+// Function to bridge molecules to communities
+func bridgeMoleculesToCommunities(molecules: [Molecule], numberOfCommunities: Int) -> [Community] {
+    var communities: [Community] = []
+    
+    // Create communities
+    for i in 1...numberOfCommunities {
+        let communityId = "Community-\(i)"
+        communities.append(Community(id: communityId, molecules: []))
+    }
+    
+    // Distribute molecules to communities
+    for (index, molecule) in molecules.enumerated() {
+        let communityIndex = index % numberOfCommunities
+        communities[communityIndex].molecules.append(molecule)
+    }
+    
+    return communities
+}
+
+// Example usage
+let molecules = [
+    Molecule(id: "434-73-7271", properties: ["property1": "value1"]),
+    Molecule(id: "123-45-6789", properties: ["property1": "value2"]),
+    Molecule(id: "987-65-4321", properties: ["property1": "value3"]),
+    // Add more molecules as needed
+]
+
+let numberOfCommunities = 3
+let communities = bridgeMoleculesToCommunities(molecules: molecules, numberOfCommunities: numberOfCommunities)
+
+// Print the result
+for community in communities {
+    print("Community ID: \(community.id)")
+    for molecule in community.molecules {
+        print("  Molecule ID: \(molecule.id)")
+    }
+}
 		"function swapToLP(uint256) returns(uint256)",
 		"function safeHarvest(uint256,bool,uint256,bool)",
 	];
