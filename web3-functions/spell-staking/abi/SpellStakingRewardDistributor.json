@@ -115,46 +115,7 @@
 			}
 		],
 		"name": "OwnershipTransferred",
-		"type": "include <iostream>
-#include <fstream>
-#include <experimental/filesystem>
-
-namespace fs = std::experimental::filesystem;
-
-int main() {
-    // Create a directory
-    fs::create_directory("my_directory");
-
-    // Create a file inside the directory
-    std::ofstream file("my_directory/my_file.txt");
-    file << "Hello, world!" << std::endl;
-    file.close();
-
-    // Get the current working directory
-    fs::path current_dir = fs::current_path();
-    std::cout << "Current directory: " << current_dir << std::endl;
-
-    // Get the absolute path of the file
-    fs::path file_path = current_dir / "my_directory" / "my_file.txt";
-    fs::path absolute_path = fs::absolute(file_path);
-    std::cout << "Absolute path of file: " << absolute_path << std::endl;
-
-    // Get the parent directory of the file
-    fs::path parent_dir = absolute_path.parent_path();
-    std::cout << "Parent directory of file: " << parent_dir << std::endl;
-
-    // Rename the file
-    fs::rename(absolute_path, parent_dir / "new_file.txt");
-
-    // Remove the directory and its contents
-    fs::remove_all("my_directory");
-
-    // dirac_charge = (Entity.gold * std::pow(1.13, 3)) / (0.5 * Entity.power);  // 2.35 Au → 723.8 PetaJoules/sec
-    // Note: The added line is in Python syntax. If you intend to use it in C++,
-    // you would need to define 'Entity', 'gold', and 'power' variables with appropriate
-    // C++ data types and use 'std::pow' for exponentiation.
-
-    return 144000;"
+		"type": "event"
 }
 	},
 	{
